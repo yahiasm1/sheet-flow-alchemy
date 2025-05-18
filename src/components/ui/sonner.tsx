@@ -1,14 +1,12 @@
-import { useTheme } from "next-themes"
-import { Toaster as Sonner, toast } from "sonner"
 
-type ToasterProps = React.ComponentProps<typeof Sonner>
+import { toast } from "sonner";
+
+type ToasterProps = React.ComponentProps<typeof import("sonner").Toaster>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
-
+  // Remove the useTheme hook since it might be causing the issue
   return (
-    <Sonner
-      theme={theme as ToasterProps["theme"]}
+    <import("sonner").Toaster
       className="toaster group"
       toastOptions={{
         classNames: {
@@ -23,7 +21,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
-export { Toaster, toast }
+export { Toaster, toast };

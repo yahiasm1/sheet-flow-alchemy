@@ -1,9 +1,9 @@
 
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
+// Remove the Sonner import since it might be causing conflicts
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import { WorksheetProvider } from "./contexts/WorksheetContext";
 import { ApiIntegrationProvider } from "./contexts/ApiIntegrationContext";
@@ -51,7 +51,7 @@ const App = () => (
         </WorksheetProvider>
       </AuthProvider>
       <Toaster />
-      <Sonner />
+      {/* Removed the Sonner toaster to eliminate potential conflict */}
     </TooltipProvider>
   </QueryClientProvider>
 );
