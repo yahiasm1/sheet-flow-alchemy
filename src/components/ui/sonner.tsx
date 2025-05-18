@@ -1,12 +1,12 @@
 
-import { toast } from "sonner";
+import { Toaster as SonnerToaster, toast } from "sonner";
 
-type ToasterProps = React.ComponentProps<typeof import("sonner").Toaster>;
+type ToasterProps = React.ComponentProps<typeof SonnerToaster>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  // Remove the useTheme hook since it might be causing the issue
+  // Simple implementation without theme dependency
   return (
-    <import("sonner").Toaster
+    <SonnerToaster
       className="toaster group"
       toastOptions={{
         classNames: {
